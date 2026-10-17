@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_weather_measurements
+    description: "Lapisan staging yang membersihkan dan memecah array JSON per jam."
+    columns:
+      - name: raw_payload_id
+        tests:
+          - not_null
+      - name: city_name
+        tests:
+          - not_null
+      - name: reading_time
+        tests:
+          - not_null
+
+  - name: dim_locations
+    description: "Tabel dimensi lokasi geografis kota dan koordinat."
+    columns:
+      - name: location_id
+        tests:
+          - unique
+          - not_null
+      - name: city_name
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "Tabel dimensi kalender dan atribut waktu."
+    columns:
+      - name: date_id
+        tests:
+          - unique
+          - not_null
+      - name: reading_time
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_weather_readings
+    description: "Tabel fakta metrik pembacaan cuaca per jam."
+    columns:
+      - name: reading_id
+        tests:
+          - unique
+          - not_null
+      - name: location_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_locations')
+              field: location_id
+      - name: date_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_id
+      - name: temperature_c
+        tests:
+          - not_null
