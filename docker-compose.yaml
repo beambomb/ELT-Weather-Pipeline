@@ -1,10 +1,8 @@
-version: '3.8'
-
 x-airflow-common: &airflow-common
   build:
     context: .
     dockerfile: docker/Dockerfile
-  environment:
+  environment: &airflow-common-env
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${AIRFLOW_DB:-airflow_db}
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
@@ -47,7 +45,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      <<: *airflow-common
+      <<: *airflow-common-env
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-admin}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-admin}
     command:
