@@ -158,13 +158,11 @@ LIMIT 5;
 
 ### Apache Airflow Workflow Execution
 Automated daily execution with task dependencies and automatic retry policies:
-*(Place your screenshot at `docs/images/airflow_dag_success.png`)*
 
 ![Airflow DAG Execution](docs/images/airflow_dag_success.png)
 
 ### dbt Interactive Lineage Graph
 End-to-end data lineage from raw JSON ingestion to dimensional models:
-*(Place your screenshot at `docs/images/dbt_lineage_graph.png`)*
 
 ![dbt Lineage Graph](docs/images/dbt_lineage_graph.png)
 
