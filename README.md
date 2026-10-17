@@ -4,7 +4,7 @@ An end-to-end automated Extract, Load, Transform (ELT) data pipeline designed to
 
 ---
 
-## 🏛️ Architecture & Workflow
+## Architecture & Workflow
 
 ```text
 ┌────────────────┐      ┌─────────────────────────┐      ┌────────────────────────────────┐
@@ -35,7 +35,7 @@ An end-to-end automated Extract, Load, Transform (ELT) data pipeline designed to
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 - **Language**: Python 3.12, SQL
 - **Data Warehouse**: PostgreSQL 15
 - **Data Transformation & Modeling**: dbt-core (`dbt-postgres`)
@@ -45,7 +45,7 @@ An end-to-end automated Extract, Load, Transform (ELT) data pipeline designed to
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 .
@@ -80,7 +80,7 @@ An end-to-end automated Extract, Load, Transform (ELT) data pipeline designed to
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 - Docker & Docker Compose
@@ -105,15 +105,15 @@ docker compose up -d --build
 
 ### 4. Access Airflow Dashboard
 Open your browser and navigate to:
-- **URL**: [http://localhost:8080](http://localhost:8080)
-- **Username**: `admin`
-- **Password**: `admin`
+- **URL**: http://localhost:8080
+- **Username**: admin
+- **Password**: admin
 
-Enable and trigger the DAG **`weather_data_elt_pipeline`** to run the complete automated pipeline!
+Enable and trigger the DAG `weather_data_elt_pipeline` to run the complete automated pipeline.
 
 ---
 
-## 🌟 Resume Highlights
+## Resume Highlights
 - Designed and implemented an automated ELT pipeline extracting hourly weather metrics for 20 cities from Open-Meteo REST API into PostgreSQL using Python with connection pooling and exponential backoff retry.
 - Built a dimensional Star Schema with dbt-core and implemented 18 automated data quality tests enforcing uniqueness, non-null constraints, and referential integrity.
 - Orchestrated daily end-to-end task dependencies and failure retries via Apache Airflow DAGs.
