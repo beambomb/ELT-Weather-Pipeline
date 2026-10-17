@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Data mentah cuaca dari Open-Meteo REST API."
+    tables:
+      - name: raw_weather_payloads
+        description: "Payload JSON mentah per jam untuk setiap kota."
